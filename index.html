@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Artisan Market</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter font and define custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#10b981', // Emerald green
+                        'secondary-slate': '#475569', // Slate
+                        'background-light': '#f8fafc', // Light slate
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for smooth transitions and focus states */
+        .card-shadow {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+        /* Style for the inquiry button to make it visually appealing */
+        .inquiry-btn {
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .inquiry-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-background-light font-sans text-secondary-slate antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-primary-green">The Local Makers' Hub</h1>
+            <nav class="space-x-4">
+                <a href="#products" class="text-secondary-slate hover:text-primary-green transition duration-150 font-medium">Products</a>
+                <a href="#about" class="text-secondary-slate hover:text-primary-green transition duration-150 font-medium hidden sm:inline">Our Class</a>
+                <a href="#contact" class="text-secondary-slate hover:text-primary-green transition duration-150 font-medium">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-primary-green/90 text-white py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">Handmade Goods, Local Impact.</h2>
+            <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Discover unique creations made by our students and support the local community directly. All products are one-of-a-kind!
+            </p>
+            <a href="#products" class="bg-white text-primary-green font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
+                Explore the Collection
+            </a>
+        </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section id="products" class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-secondary-slate mb-12">Featured Products</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                <!-- Product Card 1: Hand-Painted Mug -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <img class="w-full h-48 object-cover object-center" src="https://placehold.co/400x300/a3e635/1f2937?text=Hand-Painted+Mug" alt="Hand-Painted Ceramic Mug" onerror="this.onerror=null; this.src='https://placehold.co/400x300/a3e635/1f2937?text=Mug';">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Celestial Ceramic Mug</h3>
+                        <p class="text-gray-500 text-sm mb-3">Ceramics / Grade 10 Student</p>
+                        <p class="text-lg font-bold text-primary-green mb-4">$18.00</p>
+                        <button onclick="openInquiryModal('Celestial Ceramic Mug', '18.00')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Inquire for Local Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Lavender Soap -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <img class="w-full h-48 object-cover object-center" src="https://placehold.co/400x300/fecaca/1f2937?text=Artisan+Lavender+Soap" alt="Handmade Lavender Soap Bar" onerror="this.onerror=null; this.src='https://placehold.co/400x300/fecaca/1f2937?text=Soap';">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Artisan Lavender Soap</h3>
+                        <p class="text-gray-500 text-sm mb-3">Natural Skincare / Grade 9 Student</p>
+                        <p class="text-lg font-bold text-primary-green mb-4">$6.50</p>
+                        <button onclick="openInquiryModal('Artisan Lavender Soap', '6.50')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Inquire for Local Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Wooden Coasters -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <img class="w-full h-48 object-cover object-center" src="https://placehold.co/400x300/94a3b8/1f2937?text=Hand-Carved+Coasters" alt="Set of Four Wooden Coasters" onerror="this.onerror=null; this.src='https://placehold.co/400x300/94a3b8/1f2937?text=Coasters';">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Geometric Wooden Coasters (Set)</h3>
+                        <p class="text-gray-500 text-sm mb-3">Woodworking / Grade 11 Student</p>
+                        <p class="text-lg font-bold text-primary-green mb-4">$25.00</p>
+                        <button onclick="openInquiryModal('Geometric Wooden Coasters (Set)', '25.00')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Inquire for Local Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: Woven Basket -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <img class="w-full h-48 object-cover object-center" src="https://placehold.co/400x300/fde047/1f2937?text=Hand-Woven+Basket" alt="Small Hand-Woven Storage Basket" onerror="this.onerror=null; this.src='https://placehold.co/400x300/fde047/1f2937?text=Basket';">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Mini Woven Storage Basket</h3>
+                        <p class="text-gray-500 text-sm mb-3">Fiber Arts / Grade 9 Student</p>
+                        <p class="text-lg font-bold text-primary-green mb-4">$15.00</p>
+                        <button onclick="openInquiryModal('Mini Woven Storage Basket', '15.00')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Inquire for Local Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-secondary-slate mb-8">About Our Entrepreneurship Class</h2>
+            <div class="max-w-3xl mx-auto text-center space-y-4 text-lg">
+                <p>This market is the culmination of our students' term project in practical entrepreneurship. Each student researched, designed, prototyped, and produced their unique product, focusing on sustainable practices and high-quality craftsmanship.</p>
+                <p>By purchasing an item, you are directly funding the students' future educational activities and supporting the growth of young local makers. Thank you for making a difference!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="bg-secondary-slate text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg font-semibold mb-2">Get in Touch</p>
+            <p class="mb-4">For general inquiries, project details, or to arrange an order pick-up, please email us:</p>
+            <p class="text-primary-green font-bold text-xl">contact@yourclassschool.edu</p>
+            <div class="mt-6 pt-4 border-t border-gray-700">
+                <p class="text-sm text-gray-400">&copy; 2025 Local Makers' Hub | Hosted for the [Your Class Name] Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inquiry Modal (Hidden by Default) -->
+    <div id="inquiry-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" onclick="closeInquiryModal()">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 sm:p-8" onclick="event.stopPropagation();">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-secondary-slate">Local Order Inquiry</h3>
+                <button onclick="closeInquiryModal()" class="text-gray-400 hover:text-gray-600 transition duration-150">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <p class="text-lg mb-4 text-gray-700">You are inquiring about: <strong id="modal-product-name" class="text-primary-green"></strong> (<span id="modal-product-price"></span>)</p>
+
+            <form id="inquiry-form" onsubmit="handleInquirySubmit(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label for="inquirer-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" id="inquirer-name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
+                    </div>
+                    <div>
+                        <label for="inquirer-email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                        <input type="email" id="inquirer-email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
+                    </div>
+                    <div>
+                        <label for="inquirer-message" class="block text-sm font-medium text-gray-700 mb-1">Your Message / Order Quantity</label>
+                        <textarea id="inquirer-message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green" placeholder="e.g., I would like to order 2 mugs. When and where can I pick them up?"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full mt-6 inquiry-btn bg-primary-green text-white py-3 rounded-lg shadow-md hover:bg-primary-green/90 font-semibold">
+                    Send Inquiry
+                </button>
+            </form>
+
+            <div id="inquiry-success" class="mt-6 text-center text-primary-green hidden">
+                <p class="font-semibold text-lg">Thank you! Your inquiry has been sent.</p>
+                <p class="text-sm text-gray-500">A student will reach out to you via email shortly to coordinate payment and local pickup/delivery.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Store the product details temporarily
+        let currentProduct = {
+            name: '',
+            price: ''
+        };
+
+        const modal = document.getElementById('inquiry-modal');
+        const form = document.getElementById('inquiry-form');
+        const successMessage = document.getElementById('inquiry-success');
+        const productNameElement = document.getElementById('modal-product-name');
+        const productPriceElement = document.getElementById('modal-product-price');
+
+        /**
+         * Opens the inquiry modal and populates it with product details.
+         * @param {string} name - The name of the product.
+         * @param {string} price - The price of the product.
+         */
+        function openInquiryModal(name, price) {
+            // Reset state
+            form.reset();
+            form.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+
+            // Set current product details
+            currentProduct.name = name;
+            currentProduct.price = price;
+            
+            // Update modal content
+            productNameElement.textContent = name;
+            productPriceElement.textContent = `Price: $${price}`;
+
+            // Show the modal
+            modal.classList.remove('hidden');
+        }
+
+        /**
+         * Closes the inquiry modal.
+         */
+        function closeInquiryModal() {
+            modal.classList.add('hidden');
+        }
+
+        /**
+         * Handles the form submission (simulated email delivery).
+         * Since we cannot actually send emails from a client-side HTML file,
+         * this function simulates the success and provides instructions.
+         * @param {Event} event - The form submission event.
+         */
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+
+            // In a real application, you would send this data to a backend server (e.g., a simple Google Form/Sheet integration, or a service like Formspree).
+            // For this class project prototype, we'll just log the data and show a success message.
+
+            const inquirerName = document.getElementById('inquirer-name').value;
+            const inquirerEmail = document.getElementById('inquirer-email').value;
+            const inquirerMessage = document.getElementById('inquirer-message').value;
+
+            console.log('--- NEW LOCAL ORDER INQUIRY ---');
+            console.log(`Product: ${currentProduct.name} ($${currentProduct.price})`);
+            console.log(`Inquirer Name: ${inquirerName}`);
+            console.log(`Inquirer Email: ${inquirerEmail}`);
+            console.log(`Message: ${inquirerMessage}`);
+            console.log('------------------------------');
+            
+            // 1. Hide the form
+            form.classList.add('hidden');
+            // 2. Show the success message
+            successMessage.classList.remove('hidden');
+            
+            // The student/class organizer should monitor the server/email linked to this form
+            // (In a real setup) and follow up manually to arrange the transaction.
+
+            // Automatically close the modal after 4 seconds
+            setTimeout(closeInquiryModal, 4000);
+        }
+
+        // Add a check to prevent closing the modal when clicking inside the form container
+        document.querySelector('#inquiry-modal > div').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
+
+</body>
+</html>
