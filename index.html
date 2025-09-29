@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAJESTIC MAHARAJAS</title>
+    <title>Classroom Artisan Market</title>
     <!-- Load Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind to use Inter font and define custom colors -->
@@ -35,11 +35,14 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
             transform: translateY(-4px);
         }
-        /* Style for the inquiry button to make it visually appealing */
-        .inquiry-btn {
+        /* Style for the inquiry link to make it visually appealing */
+        .inquiry-link {
             transition: background-color 0.2s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .inquiry-btn:active {
+        .inquiry-link:active {
             transform: scale(0.98);
         }
     </style>
@@ -63,7 +66,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">Handmade Goods, Local Impact.</h2>
             <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Discover sustainable products handcrafted by students at Maharaja's College, Ernakulam. Support education while making environmentally responsible choices.All products are one-of-a-kind!
+                Discover unique creations made by our students and support the local community directly. All products are one-of-a-kind!
             </p>
             <a href="#products" class="bg-white text-primary-green font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
                 Explore the Collection
@@ -78,6 +81,8 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
+                <!-- All inquiry buttons now link directly to the full Google Order Form -->
+                
                 <!-- Product Card 1: Hand-Painted Mug -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
                     <img class="w-full h-48 object-cover object-center" src="https://placehold.co/400x300/a3e635/1f2937?text=Hand-Painted+Mug" alt="Hand-Painted Ceramic Mug" onerror="this.onerror=null; this.src='https://placehold.co/400x300/a3e635/1f2937?text=Mug';">
@@ -85,9 +90,9 @@
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Celestial Ceramic Mug</h3>
                         <p class="text-gray-500 text-sm mb-3">Ceramics / Grade 10 Student</p>
                         <p class="text-lg font-bold text-primary-green mb-4">$18.00</p>
-                        <button onclick="openInquiryModal('Celestial Ceramic Mug', '18.00')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
-                            Inquire for Local Order
-                        </button>
+                        <a href="https://forms.gle/RsjXB464VvzqX6xA8" target="_blank" class="inquiry-link w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Go to Order Form
+                        </a>
                     </div>
                 </div>
 
@@ -98,9 +103,9 @@
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Artisan Lavender Soap</h3>
                         <p class="text-gray-500 text-sm mb-3">Natural Skincare / Grade 9 Student</p>
                         <p class="text-lg font-bold text-primary-green mb-4">$6.50</p>
-                        <button onclick="openInquiryModal('Artisan Lavender Soap', '6.50')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
-                            Inquire for Local Order
-                        </button>
+                        <a href="https://forms.gle/RsjXB464VvzqX6xA8" target="_blank" class="inquiry-link w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Go to Order Form
+                        </a>
                     </div>
                 </div>
 
@@ -111,9 +116,9 @@
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Geometric Wooden Coasters (Set)</h3>
                         <p class="text-gray-500 text-sm mb-3">Woodworking / Grade 11 Student</p>
                         <p class="text-lg font-bold text-primary-green mb-4">$25.00</p>
-                        <button onclick="openInquiryModal('Geometric Wooden Coasters (Set)', '25.00')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
-                            Inquire for Local Order
-                        </button>
+                        <a href="https://forms.gle/RsjXB464VvzqX6xA8" target="_blank" class="inquiry-link w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Go to Order Form
+                        </a>
                     </div>
                 </div>
 
@@ -124,9 +129,9 @@
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Mini Woven Storage Basket</h3>
                         <p class="text-gray-500 text-sm mb-3">Fiber Arts / Grade 9 Student</p>
                         <p class="text-lg font-bold text-primary-green mb-4">$15.00</p>
-                        <button onclick="openInquiryModal('Mini Woven Storage Basket', '15.00')" class="inquiry-btn w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
-                            Inquire for Local Order
-                        </button>
+                        <a href="https://forms.gle/RsjXB464VvzqX6xA8" target="_blank" class="inquiry-link w-full bg-primary-green text-white py-2 rounded-lg shadow-md hover:bg-primary-green/90 font-medium">
+                            Go to Order Form
+                        </a>
                     </div>
                 </div>
             </div>
@@ -148,7 +153,7 @@
     <footer id="contact" class="bg-secondary-slate text-white py-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-lg font-semibold mb-2">Get in Touch</p>
-            <p class="mb-4">For general inquiries, project details, or to arrange an order pick-up, please email us:</p>
+            <p class="mb-4">To place an order, please use the official order form linked on every product page, or for general inquiries, email us:</p>
             <p class="text-primary-green font-bold text-xl">contact@yourclassschool.edu</p>
             <div class="mt-6 pt-4 border-t border-gray-700">
                 <p class="text-sm text-gray-400">&copy; 2025 Local Makers' Hub | Hosted for the [Your Class Name] Project.</p>
@@ -156,192 +161,15 @@
         </div>
     </footer>
 
-    <!-- Inquiry Modal (Hidden by Default) -->
-    <div id="inquiry-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" onclick="closeInquiryModal()">
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-6 sm:p-8" onclick="event.stopPropagation();">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-secondary-slate">Local Order Inquiry</h3>
-                <button onclick="closeInquiryModal()" class="text-gray-400 hover:text-gray-600 transition duration-150">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            
-            <p class="text-lg mb-4 text-gray-700">You are inquiring about: <strong id="modal-product-name" class="text-primary-green"></strong> (<span id="modal-product-price"></span>)</p>
-
-            <form id="inquiry-form" onsubmit="handleInquirySubmit(event)">
-                <div class="space-y-4">
-                    <!-- Hidden field to pass product name to the submission function -->
-                    <input type="hidden" id="inquiry-product" name="Product Name" value=""> 
-
-                    <div>
-                        <label for="inquirer-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                        <input type="text" id="inquirer-name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
-                    </div>
-                    <div>
-                        <label for="inquirer-email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-                        <input type="email" id="inquirer-email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
-                    </div>
-                    <div>
-                        <label for="inquirer-quantity" class="block text-sm font-medium text-gray-700 mb-1">Quantity Requested</label>
-                        <input type="number" id="inquirer-quantity" required min="1" value="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
-                    </div>
-                    <div>
-                        <label for="inquirer-message" class="block text-sm font-medium text-gray-700 mb-1">Additional Details (e.g., Pickup preferences, multiple item requests)</label>
-                        <textarea id="inquirer-message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green" placeholder="If you want to order more than one type of item, please list the other items and quantities here."></textarea>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full mt-6 inquiry-btn bg-primary-green text-white py-3 rounded-lg shadow-md hover:bg-primary-green/90 font-semibold">
-                    Place Order Inquiry
-                </button>
-            </form>
-
-            <div id="inquiry-success" class="mt-6 text-center text-primary-green hidden">
-                <p class="font-semibold text-lg">Thank you! Your inquiry has been successfully submitted.</p>
-                <p class="text-sm text-gray-500">A student will reach out to you via email shortly to coordinate payment and local pickup/delivery.</p>
-            </div>
-        </div>
-    </div>
+    <!-- No Inquiry Modal HTML is needed since we are redirecting to the Google Form -->
 
 
     <script>
-        // Store the product details temporarily
-        let currentProduct = {
-            name: '',
-            price: ''
-        };
+        // All complex form submission logic and placeholder IDs have been removed.
+        // The functionality is now handled by directly linking to the Google Form.
 
-        const modal = document.getElementById('inquiry-modal');
-        const form = document.getElementById('inquiry-form');
-        const successMessage = document.getElementById('inquiry-success');
-        const productNameElement = document.getElementById('modal-product-name');
-        const productPriceElement = document.getElementById('modal-product-price');
-
-        // **************************************************************************
-        // STEP 1: REPLACE THIS PLACEHOLDER URL
-        // Instructions: Use the 'google_form_setup_guide.md' file to find the correct Form Action URL.
-        const GOOGLE_FORM_ACTION_URL = "YOUR_GOOGLE_FORM_ACTION_URL_HERE"; 
-        
-        // STEP 2: REPLACE THESE PLACEHOLDER ENTRY IDs
-        // Instructions: Use the 'google_form_setup_guide.md' file to find the correct entry.XXX IDs.
-        const ENTRY_ID_PRODUCT_NAME = 'entry.PRODUCT_NAME_ID'; 
-        const ENTRY_ID_NAME = 'entry.NAME_ID'; 
-        const ENTRY_ID_EMAIL = 'entry.EMAIL_ID'; 
-        const ENTRY_ID_QUANTITY = 'entry.QUANTITY_ID'; 
-        const ENTRY_ID_MESSAGE = 'entry.MESSAGE_ID'; 
-        // Note: ENTRY_ID_PRICE is commented out below unless you add a specific price field to your Google Form.
-        // **************************************************************************
-
-
-        /**
-         * Opens the inquiry modal and populates it with product details.
-         * @param {string} name - The name of the product.
-         * @param {string} price - The price of the product.
-         */
-        function openInquiryModal(name, price) {
-            // Reset state
-            form.reset();
-            form.classList.remove('hidden');
-            successMessage.classList.add('hidden');
-
-            // Set current product details
-            currentProduct.name = name;
-            currentProduct.price = price;
-            
-            // Update modal content
-            productNameElement.textContent = name;
-            productPriceElement.textContent = `Price: $${price}`;
-            
-            // Set the hidden input field for easy form submission mapping
-            document.getElementById('inquiry-product').value = name; 
-
-            // Show the modal
-            modal.classList.remove('hidden');
-        }
-
-        /**
-         * Closes the inquiry modal.
-         */
-        function closeInquiryModal() {
-            modal.classList.add('hidden');
-        }
-
-        /**
-         * Hides the form and shows the success message.
-         * @param {boolean} isSimulated - True if form was not actually submitted.
-         */
-        function showSuccessState(isSimulated) {
-             // 1. Hide the form
-            form.classList.add('hidden');
-            // 2. Show the success message
-            successMessage.classList.remove('hidden');
-            
-            if (isSimulated) {
-                console.warn("NOTE: Form submission was SIMULATED because the Google Form URL or Entry IDs were missing.");
-            }
-            
-            // Automatically close the modal after 4 seconds
-            setTimeout(closeInquiryModal, 4000);
-        }
-
-        /**
-         * Handles the form submission by posting data to a Google Form endpoint.
-         * @param {Event} event - The form submission event.
-         */
-        async function handleInquirySubmit(event) {
-            event.preventDefault();
-
-            // Gather form data
-            const inquirerName = document.getElementById('inquirer-name').value;
-            const inquirerEmail = document.getElementById('inquirer-email').value;
-            const inquirerQuantity = document.getElementById('inquirer-quantity').value;
-            const inquirerMessage = document.getElementById('inquirer-message').value;
-            const productName = currentProduct.name;
-            const productPrice = currentProduct.price;
-
-            // Log the data for debugging (good practice)
-            console.log('--- Order Attempt ---');
-            console.log(`Product: ${productName}, Qty: ${inquirerQuantity}, Total Est: $${(parseFloat(productPrice) * parseInt(inquirerQuantity)).toFixed(2)}`);
-            
-            if (GOOGLE_FORM_ACTION_URL.includes("YOUR_GOOGLE_FORM_ACTION_URL_HERE") || 
-                ENTRY_ID_PRODUCT_NAME.includes("PRODUCT_NAME_ID")) {
-                console.error("CONFIGURATION ERROR: Please set the GOOGLE_FORM_ACTION_URL and all ENTRY_ID constants.");
-                showSuccessState(true); 
-                return;
-            }
-
-            // The data structure here maps the input values to the unique Google Form field IDs.
-            const formData = new FormData();
-            formData.append(ENTRY_ID_PRODUCT_NAME, productName);
-            formData.append(ENTRY_ID_NAME, inquirerName);
-            formData.append(ENTRY_ID_EMAIL, inquirerEmail);
-            formData.append(ENTRY_ID_QUANTITY, inquirerQuantity);
-            formData.append(ENTRY_ID_MESSAGE, inquirerMessage);
-            // formData.append(ENTRY_ID_PRICE, productPrice); // Uncomment if you add a Price field to your form
-
-            try {
-                // Submit the data to the Google Form endpoint
-                const response = await fetch(GOOGLE_FORM_ACTION_URL, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' 
-                });
-
-                // Assume success if fetch completes, due to 'no-cors' mode
-                showSuccessState(false); 
-
-            } catch (error) {
-                console.error('Submission failed. Check network or GOOGLE_FORM_ACTION_URL.', error);
-                showSuccessState(false); 
-            }
-        }
-
-        // Add a check to prevent closing the modal when clicking inside the form container
-        document.querySelector('#inquiry-modal > div').addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
+        // The old modal functions (openInquiryModal, closeInquiryModal, handleInquirySubmit) 
+        // are no longer defined or needed in this version.
     </script>
 
 </body>
