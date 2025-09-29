@@ -55,11 +55,11 @@
             
             <!-- Logo and Title Container -->
             <div class="flex items-center space-x-3">
-                <!-- LOGO IMAGE: Reverting to a reliable placeholder to confirm logo section works -->
+                <!-- LOGO IMAGE: NOW POINTS TO A RELATIVE PATH IN THE GITHUB REPO: ./images/logo.png -->
                 <img id="logo-image" class="h-8 w-auto" 
-                     src="https://via.placeholder.com/32x32/475569/ffffff?text=MM" 
-                     alt="Majestic Maharajas Logo" 
-                     onerror="this.onerror=null; this.src='https://via.placeholder.com/32x32/10b981/ffffff?text=L';">
+                     src="./images/logo.png" 
+                     alt="Majestic Maharajas Logo"
+                     onerror="this.onerror=null; this.src='./images/logo_placeholder.png';">
                 
                 <h1 class="text-2xl font-bold text-primary-green">Majestic Maharajas</h1>
             </div>
@@ -94,14 +94,13 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-                <!-- All inquiry buttons now link directly to the full Google Order Form -->
-                
                 <!-- Product Card 1: Hand-Painted Mug -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <!-- Placeholder Path: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                     <img class="w-full h-48 object-cover object-center" 
-                         src="https://via.placeholder.com/400x300/a3e635/1f2937?text=Hand-Painted+Mug" 
+                         src="./images/mug.jpg" 
                          alt="Hand-Painted Ceramic Mug" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/a3e635/1f2937?text=Mug';">
+                         onerror="this.onerror=null; this.src='./images/fallback.png';">
                     <div class="p-5">
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Celestial Ceramic Mug</h3>
                         <p class="text-gray-500 text-sm mb-3">Ceramics / Grade 10 Student</p>
@@ -114,10 +113,11 @@
 
                 <!-- Product Card 2: Lavender Soap -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <!-- Placeholder Path: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                     <img class="w-full h-48 object-cover object-center" 
-                         src="https://via.placeholder.com/400x300/fecaca/1f2937?text=Artisan+Lavender+Soap" 
+                         src="./images/soap.jpg" 
                          alt="Handmade Lavender Soap Bar" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/fecaca/1f2937?text=Soap';">
+                         onerror="this.onerror=null; this.src='./images/fallback.png';">
                     <div class="p-5">
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Artisan Lavender Soap</h3>
                         <p class="text-gray-500 text-sm mb-3">Natural Skincare / Grade 9 Student</p>
@@ -130,10 +130,11 @@
 
                 <!-- Product Card 3: Wooden Coasters -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <!-- Placeholder Path: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                     <img class="w-full h-48 object-cover object-center" 
-                         src="https://via.placeholder.com/400x300/94a3b8/1f2937?text=Hand-Carved+Coasters" 
+                         src="./images/coasters.jpg" 
                          alt="Set of Four Wooden Coasters" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/94a3b8/1f2937?text=Coasters';">
+                         onerror="this.onerror=null; this.src='./images/fallback.png';">
                     <div class="p-5">
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Geometric Wooden Coasters (Set)</h3>
                         <p class="text-gray-500 text-sm mb-3">Woodworking / Grade 11 Student</p>
@@ -146,10 +147,11 @@
 
                 <!-- Product Card 4: Woven Basket -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <!-- Placeholder Path: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                     <img class="w-full h-48 object-cover object-center" 
-                         src="https://via.placeholder.com/400x300/fde047/1f2937?text=Hand-Woven+Basket" 
+                         src="./images/basket.jpg" 
                          alt="Small Hand-Woven Storage Basket" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/fde047/1f2937?text=Basket';">
+                         onerror="this.onerror=null; this.src='./images/fallback.png';">
                     <div class="p-5">
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Mini Woven Storage Basket</h3>
                         <p class="text-gray-500 text-sm mb-3">Fiber Arts / Grade 9 Student</p>
@@ -162,10 +164,11 @@
 
                 <!-- NEW Product Card 5: Macrame Plant Hanger -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <!-- Placeholder Path: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                     <img class="w-full h-48 object-cover object-center" 
-                         src="https://via.placeholder.com/400x300/bbf7d0/1f2937?text=Macrame+Hanger" 
+                         src="./images/macrame.jpg" 
                          alt="Macrame Plant Hanger" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/bbf7d0/1f2937?text=Hanger';">
+                         onerror="this.onerror=null; this.src='./images/fallback.png';">
                     <div class="p-5">
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Bohemian Macrame Hanger</h3>
                         <p class="text-gray-500 text-sm mb-3">Fiber Arts / Grade 10 Student</p>
@@ -178,10 +181,11 @@
 
                 <!-- NEW Product Card 6: Chili Oil -->
                 <div class="bg-white rounded-xl overflow-hidden card-shadow">
+                    <!-- Placeholder Path: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                     <img class="w-full h-48 object-cover object-center" 
-                         src="https://via.placeholder.com/400x300/fca5a5/1f2937?text=Spicy+Chili+Oil" 
+                         src="./images/chili_oil.jpg" 
                          alt="Handmade Spicy Chili Oil" 
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/fca5a5/1f2937?text=Chili+Oil';">
+                         onerror="this.onerror=null; this.src='./images/fallback.png';">
                     <div class="p-5">
                         <h3 class="text-xl font-semibold text-secondary-slate truncate mb-1">Artisan Spicy Chili Oil</h3>
                         <p class="text-gray-500 text-sm mb-3">Culinary Arts / Grade 11 Student</p>
@@ -208,31 +212,31 @@
             <!-- Photo Grid -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 
-                <!-- Photo 1 Placeholder: Retained your specific link for testing, but ensure permissions are public! -->
+                <!-- Photo 1 Placeholder: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                 <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                     <img class="w-full h-48 object-cover" 
-                         src="https://drive.google.com/uc?export=view&id=1r6sHkDKEI7yNdR4-FIHKfT0bc9ObiLln" 
+                         src="./images/event_workshop.jpg" 
                          alt="Students working on ceramics during a workshop">
                 </div>
                 
-                <!-- Photo 2 Placeholder -->
+                <!-- Photo 2 Placeholder: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                 <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                     <img class="w-full h-48 object-cover" 
-                         src="https://via.placeholder.com/600x450/f97316/ffffff?text=Market+Setup" 
+                         src="./images/event_market_setup.jpg" 
                          alt="Students setting up their market stalls">
                 </div>
 
-                <!-- Photo 3 Placeholder -->
+                <!-- Photo 3 Placeholder: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                 <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                     <img class="w-full h-48 object-cover" 
-                         src="https://via.placeholder.com/600x450/3b82f6/ffffff?text=Community+Visit" 
+                         src="./images/event_community_visit.jpg" 
                          alt="Students talking to community members">
                 </div>
                 
-                <!-- Photo 4 Placeholder -->
+                <!-- Photo 4 Placeholder: CHANGE THE FILE NAME TO YOUR ACTUAL IMAGE -->
                 <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02]">
                     <img class="w-full h-48 object-cover" 
-                         src="https://via.placeholder.com/600x450/a855f7/ffffff?text=Product+Demo" 
+                         src="./images/event_product_demo.jpg" 
                          alt="Student demonstrating a product">
                 </div>
 
