@@ -172,6 +172,9 @@
 
             <form id="inquiry-form" onsubmit="handleInquirySubmit(event)">
                 <div class="space-y-4">
+                    <!-- Hidden field to pass product name to the submission function -->
+                    <input type="hidden" id="inquiry-product" name="Product Name" value=""> 
+
                     <div>
                         <label for="inquirer-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
                         <input type="text" id="inquirer-name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
@@ -181,18 +184,22 @@
                         <input type="email" id="inquirer-email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
                     </div>
                     <div>
-                        <label for="inquirer-message" class="block text-sm font-medium text-gray-700 mb-1">Your Message / Order Quantity</label>
-                        <textarea id="inquirer-message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green" placeholder="e.g., I would like to order 2 mugs. When and where can I pick them up?"></textarea>
+                        <label for="inquirer-quantity" class="block text-sm font-medium text-gray-700 mb-1">Quantity Requested</label>
+                        <input type="number" id="inquirer-quantity" required min="1" value="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green">
+                    </div>
+                    <div>
+                        <label for="inquirer-message" class="block text-sm font-medium text-gray-700 mb-1">Additional Details (e.g., Pickup preferences, multiple item requests)</label>
+                        <textarea id="inquirer-message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green" placeholder="If you want to order more than one type of item, please list the other items and quantities here."></textarea>
                     </div>
                 </div>
 
                 <button type="submit" class="w-full mt-6 inquiry-btn bg-primary-green text-white py-3 rounded-lg shadow-md hover:bg-primary-green/90 font-semibold">
-                    Send Inquiry
+                    Place Order Inquiry
                 </button>
             </form>
 
             <div id="inquiry-success" class="mt-6 text-center text-primary-green hidden">
-                <p class="font-semibold text-lg">Thank you! Your inquiry has been sent.</p>
+                <p class="font-semibold text-lg">Thank you! Your inquiry has been successfully submitted.</p>
                 <p class="text-sm text-gray-500">A student will reach out to you via email shortly to coordinate payment and local pickup/delivery.</p>
             </div>
         </div>
@@ -212,6 +219,22 @@
         const productNameElement = document.getElementById('modal-product-name');
         const productPriceElement = document.getElementById('modal-product-price');
 
+        // **************************************************************************
+        // STEP 1: REPLACE THIS PLACEHOLDER URL
+        // Instructions: Use the 'google_form_setup_guide.md' file to find the correct Form Action URL.
+        const GOOGLE_FORM_ACTION_URL = "YOUR_GOOGLE_FORM_ACTION_URL_HERE"; 
+        
+        // STEP 2: REPLACE THESE PLACEHOLDER ENTRY IDs
+        // Instructions: Use the 'google_form_setup_guide.md' file to find the correct entry.XXX IDs.
+        const ENTRY_ID_PRODUCT_NAME = 'entry.PRODUCT_NAME_ID'; 
+        const ENTRY_ID_NAME = 'entry.NAME_ID'; 
+        const ENTRY_ID_EMAIL = 'entry.EMAIL_ID'; 
+        const ENTRY_ID_QUANTITY = 'entry.QUANTITY_ID'; 
+        const ENTRY_ID_MESSAGE = 'entry.MESSAGE_ID'; 
+        // Note: ENTRY_ID_PRICE is commented out below unless you add a specific price field to your Google Form.
+        // **************************************************************************
+
+
         /**
          * Opens the inquiry modal and populates it with product details.
          * @param {string} name - The name of the product.
@@ -230,6 +253,9 @@
             // Update modal content
             productNameElement.textContent = name;
             productPriceElement.textContent = `Price: $${price}`;
+            
+            // Set the hidden input field for easy form submission mapping
+            document.getElementById('inquiry-product').value = name; 
 
             // Show the modal
             modal.classList.remove('hidden');
@@ -243,38 +269,73 @@
         }
 
         /**
-         * Handles the form submission (simulated email delivery).
-         * Since we cannot actually send emails from a client-side HTML file,
-         * this function simulates the success and provides instructions.
-         * @param {Event} event - The form submission event.
+         * Hides the form and shows the success message.
+         * @param {boolean} isSimulated - True if form was not actually submitted.
          */
-        function handleInquirySubmit(event) {
-            event.preventDefault();
-
-            // In a real application, you would send this data to a backend server (e.g., a simple Google Form/Sheet integration, or a service like Formspree).
-            // For this class project prototype, we'll just log the data and show a success message.
-
-            const inquirerName = document.getElementById('inquirer-name').value;
-            const inquirerEmail = document.getElementById('inquirer-email').value;
-            const inquirerMessage = document.getElementById('inquirer-message').value;
-
-            console.log('--- NEW LOCAL ORDER INQUIRY ---');
-            console.log(`Product: ${currentProduct.name} ($${currentProduct.price})`);
-            console.log(`Inquirer Name: ${inquirerName}`);
-            console.log(`Inquirer Email: ${inquirerEmail}`);
-            console.log(`Message: ${inquirerMessage}`);
-            console.log('------------------------------');
-            
-            // 1. Hide the form
+        function showSuccessState(isSimulated) {
+             // 1. Hide the form
             form.classList.add('hidden');
             // 2. Show the success message
             successMessage.classList.remove('hidden');
             
-            // The student/class organizer should monitor the server/email linked to this form
-            // (In a real setup) and follow up manually to arrange the transaction.
-
+            if (isSimulated) {
+                console.warn("NOTE: Form submission was SIMULATED because the Google Form URL or Entry IDs were missing.");
+            }
+            
             // Automatically close the modal after 4 seconds
             setTimeout(closeInquiryModal, 4000);
+        }
+
+        /**
+         * Handles the form submission by posting data to a Google Form endpoint.
+         * @param {Event} event - The form submission event.
+         */
+        async function handleInquirySubmit(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const inquirerName = document.getElementById('inquirer-name').value;
+            const inquirerEmail = document.getElementById('inquirer-email').value;
+            const inquirerQuantity = document.getElementById('inquirer-quantity').value;
+            const inquirerMessage = document.getElementById('inquirer-message').value;
+            const productName = currentProduct.name;
+            const productPrice = currentProduct.price;
+
+            // Log the data for debugging (good practice)
+            console.log('--- Order Attempt ---');
+            console.log(`Product: ${productName}, Qty: ${inquirerQuantity}, Total Est: $${(parseFloat(productPrice) * parseInt(inquirerQuantity)).toFixed(2)}`);
+            
+            if (GOOGLE_FORM_ACTION_URL.includes("YOUR_GOOGLE_FORM_ACTION_URL_HERE") || 
+                ENTRY_ID_PRODUCT_NAME.includes("PRODUCT_NAME_ID")) {
+                console.error("CONFIGURATION ERROR: Please set the GOOGLE_FORM_ACTION_URL and all ENTRY_ID constants.");
+                showSuccessState(true); 
+                return;
+            }
+
+            // The data structure here maps the input values to the unique Google Form field IDs.
+            const formData = new FormData();
+            formData.append(ENTRY_ID_PRODUCT_NAME, productName);
+            formData.append(ENTRY_ID_NAME, inquirerName);
+            formData.append(ENTRY_ID_EMAIL, inquirerEmail);
+            formData.append(ENTRY_ID_QUANTITY, inquirerQuantity);
+            formData.append(ENTRY_ID_MESSAGE, inquirerMessage);
+            // formData.append(ENTRY_ID_PRICE, productPrice); // Uncomment if you add a Price field to your form
+
+            try {
+                // Submit the data to the Google Form endpoint
+                const response = await fetch(GOOGLE_FORM_ACTION_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' 
+                });
+
+                // Assume success if fetch completes, due to 'no-cors' mode
+                showSuccessState(false); 
+
+            } catch (error) {
+                console.error('Submission failed. Check network or GOOGLE_FORM_ACTION_URL.', error);
+                showSuccessState(false); 
+            }
         }
 
         // Add a check to prevent closing the modal when clicking inside the form container
